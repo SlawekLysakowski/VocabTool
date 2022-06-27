@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="container">
+  <nav>
+    <a href="/vocab/list">home</a>
+    <a href="#">about</a>
+    <a href="/vocab/list">vocabulary list</a>
+    <a href="/vocab/new">Add vocab</a>
+  </nav>
+  <div class="app">
+  <form th:method="POST" th:action="@{/vocab/update(id=${updateVocab.id})}" th:object="${updateVocab}" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="id">Id</label>
+      <input id="id" class="form-control" type="text" th:field="*{id}" disabled>
+    </div>
+    <div class="form-group">
+      <label for="japanese">japanese</label>
+      <input id="japanese" class="form-control" type="text" th:field="*{japanese}">
+    </div>
+    <div class="form-group">
+      <label for="korean">korean</label>
+      <input id="korean" class="form-control" type="text" th:field="*{korean}">
+    </div>
+    <div class="form-group">
+      <label for="english">english</label>
+      <input id="english" class="form-control" type="text" th:field="*{english}">
+    </div>
+    <div class="form-group">
+      <label for="polish">polish</label>
+      <input id="polish" class="form-control" type="text" th:field="*{polish}">
+    </div>
+    <div class="form-group">
+      <input type="submit" class="form-control btn btn-primary" value="Edit">
+      <input onclick='javascript:window.history.back()' value='Cancel' type='button' class="form-control btn btn-secondary" />
+    </div>
+  </form>
+</div>
+</div>
+
+</body>
+</html>

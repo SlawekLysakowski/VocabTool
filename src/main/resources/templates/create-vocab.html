@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New vocab</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/vocab/new}" th:object="${newVocab}">
+
+<div>
+
+  <input type="text" placeholder="japanese" th:field="*{japanese}">
+<input type="text" placeholder="Korean" th:field="*{korean}">
+<input type="text" placeholder="English" th:field="*{english}">
+<input type="text" placeholder="Polish" th:field="*{polish}">
+
+</div>
+
+<div class="form-group">
+  <input type="submit" class="form-control btn btn-primary" value="Create">
+  <input onclick='javascript:window.history.back()' value='Cancel' type='button' class="form-control btn btn-secondary" />
+</div>
+</form>
+</body>
+</html>

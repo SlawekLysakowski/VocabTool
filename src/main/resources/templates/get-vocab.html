@@ -1,0 +1,49 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>get-vocab</title>
+</head>
+<body>
+<div class="container">
+  <h2>Vocab:</h2>
+  <div class="row">
+    <div class="col-3">Akcje :</div>
+    <div class="col-9">
+      <a class="btn btn-warning" th:href="@{/vocab/update(id=${vocab.id})}">edit</a>
+      <a class="btn btn-danger" th:href="@{/vocab/delete(id=${vocab.id})}">delete</a>
+      <a class="btn btn-secondary" th:href="@{/vocab/list}">back</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3">Id :</div>
+    <div class="col-9">
+      <p th:text="${vocab.id}"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3">japanese :</div>
+    <div class="col-9">
+      <p th:text="${vocab.japanese}"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3">korean :</div>
+    <div class="col-9">
+      <p th:text="${vocab.korean}"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3">english :</div>
+    <div class="col-9">
+      <p th:text="${vocab.english}"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3">polish :</div>
+    <div class="col-9">
+      <p th:text="${vocab.polish}"></p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
