@@ -2,39 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>Edit vocabulary</title>
+  <link  th:href="@{/styles.css}" rel="stylesheet">
+
 </head>
 <body>
 <div id="container">
   <nav>
-    <a href="/vocab/list">home</a>
+    <a href="/test">home</a>
     <a href="#">about</a>
-    <a href="/vocab/list">vocabulary list</a>
-    <a href="/vocab/new">Add vocab</a>
+    <a href="/list">vocabulary list</a>
+    <a href="/new">Add vocab</a>
   </nav>
-  <div class="app">
-  <form th:method="POST" th:action="@{/vocab/update(id=${updateVocab.id})}" th:object="${updateVocab}" enctype="multipart/form-data">
-    <div class="form-group">
-      <label for="id">Id</label>
-      <input id="id" class="form-control" type="text" th:field="*{id}" disabled>
+  <div id="edit-vocab">
+  <form th:id="edit-form" th:method="POST" th:action="@{/update(id=${updateVocab.id})}" th:object="${updateVocab}" enctype="multipart/form-data">
+    <div class="form-group" id="1">
+      <label id="id-label" for="edit-id">ID</label>
+      <input id="edit-id" class="form-control" type="text" th:field="*{id}" disabled>
     </div>
-    <div class="form-group">
-      <label for="japanese">japanese</label>
+    <div class="form-group" id="2">
+      <label id="jap-label" for="japanese">JAPANESE</label>
       <input id="japanese" class="form-control" type="text" th:field="*{japanese}">
     </div>
-    <div class="form-group">
-      <label for="korean">korean</label>
+    <div class="form-group" id="3">
+      <label id="kor-label" for="korean">KOREAN</label>
       <input id="korean" class="form-control" type="text" th:field="*{korean}">
     </div>
-    <div class="form-group">
-      <label for="english">english</label>
+    <div class="form-group" id="4">
+      <label id="eng-label" for="english">ENGLISH</label>
       <input id="english" class="form-control" type="text" th:field="*{english}">
     </div>
-    <div class="form-group">
-      <label for="polish">polish</label>
+    <div class="form-group" id="5">
+      <label id="pol-label" for="polish">POLISH</label>
       <input id="polish" class="form-control" type="text" th:field="*{polish}">
     </div>
-    <div class="form-group">
+    <div class="form-group" id="6">
       <input type="submit" class="form-control btn btn-primary" value="Edit">
       <input onclick='javascript:window.history.back()' value='Cancel' type='button' class="form-control btn btn-secondary" />
     </div>

@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.PropertySource;
 
 @SpringBootApplication
-//@PropertySource("classpath:db.properties")
+@PropertySource("classpath:db.properties")
 public class VocabToolApplication {
 
 //    public static final Logger logger = LoggerFactory.getLogger(VocabToolApplication.class);

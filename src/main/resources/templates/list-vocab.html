@@ -1,17 +1,17 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Vocab list</title>
+  <title>Vocabulary list</title>
   <link  th:href="@{/styles.css}" rel="stylesheet">
 
 </head>
 <body>
 <div th:id="container" width="75%" border="1px solid black"  >
 <nav>
-  <a href="/vocab/test">home</a>
+  <a href="/test">home</a>
   <a href="#">about</a>
-  <a href="/vocab/list">vocabulary list</a>
-  <a href="/vocab/new">Add vocab</a>
+  <a href="/list">vocabulary list</a>
+  <a href="/new">Add vocab</a>
 </nav>
 <!--<div class="app">-->
 
@@ -30,9 +30,9 @@
       <td th:text="${word.english}" align="center"></td>
       <td th:text="${word.polish}" align="center"></td>
       <td>
-        <a class="btn btn-primary" th:href="@{/vocab/get(id=${word.id})}" color="green" >Open</a>
-        <a class="btn btn-warning" th:href="@{/vocab/update(id=${word.id})}" color="blue">Edit</a>
-        <a class="btn btn-danger" th:href="@{/vocab/delete(id=${word.id})}" color="red">Delete</a>
+        <a class="btn btn-primary" th:href="@{/get(id=${word.id})}" color="green" >Open</a>
+        <a class="btn btn-warning" th:href="@{/update(id=${word.id})}" color="blue">Edit</a>
+        <a class="btn btn-danger" th:href="@{/delete(id=${word.id})}" color="red">Delete</a>
       </td>
     </tr>
   </table>

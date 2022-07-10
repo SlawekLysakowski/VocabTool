@@ -1,49 +1,52 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>get-vocab</title>
+  <title>get vocabulary</title>
+  <link  th:href="@{/styles.css}" rel="stylesheet">
 </head>
 <body>
-<div class="container">
-  <h2>Vocab:</h2>
-  <div class="row">
-    <div class="col-3">Akcje :</div>
-    <div class="col-9">
-      <a class="btn" th:href="@{/vocab/update(id=${vocab.id})}" color="blue">edit</a>
-      <a class="btn" th:href="@{/vocab/delete(id=${vocab.id})}">delete</a>
-      <a class="btn" th:href="@{/vocab/list}">back</a>
+<div id="container">
+  <nav>
+    <a href="/test">home</a>
+    <a href="#">about</a>
+    <a href="list">vocabulary list</a>
+    <a href="/new">Add vocab</a>
+  </nav>
+  <div id="vocab-container">
+    <div class="open-group" id="1">
+      <label id="id-label" >ID</label>
+<!--      <input id="edit-id" class="form-control" type="text" th:field="*{id}" disabled>-->
+      <p id="edit-id" th:text="${vocab.id}"></p>
+
     </div>
-  </div>
-  <div class="row">
-    <div class="col-3">Id :</div>
-    <div class="col-9">
-      <p th:text="${vocab.id}"></p>
+    <div class="open-group" id="2">
+      <label id="jap-label">JAPANESE</label>
+<!--      <input id="japanese" class="form-control" type="text" th:field="*{japanese}">-->
+      <p id="japanese" th:text="${vocab.japanese}"></p>
+
     </div>
-  </div>
-  <div class="row">
-    <div class="col-3">japanese :</div>
-    <div class="col-9">
-      <p th:text="${vocab.japanese}"></p>
+    <div class="open-group" id="3">
+      <label id="kor-label" >KOREAN</label>
+<!--      <input id="korean" class="form-control" type="text" th:field="*{korean}">-->
+      <p id="korean" th:text="${vocab.korean}"></p>
+
     </div>
-  </div>
-  <div class="row">
-    <div class="col-3">korean :</div>
-    <div class="col-9">
-      <p th:text="${vocab.korean}"></p>
+    <div class="open-group" id="4">
+      <label id="eng-label" >ENGLISH</label>
+<!--      <input id="english" class="form-control" type="text" th:field="*{english}">-->
+      <p id="english" th:text="${vocab.english}"></p>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-3">english :</div>
-    <div class="col-9">
-      <p th:text="${vocab.english}"></p>
+    <div class="open-group" id="5">
+      <label id="pol-label" >POLISH</label>
+<!--      <input id="polish" class="form-control" type="text" th:field="*{polish}">-->
+      <p id="polish" th:text="${vocab.polish}"></p>
+
     </div>
-  </div>
-  <div class="row">
-    <div class="col-3">polish :</div>
-    <div class="col-9">
-      <p th:text="${vocab.polish}"></p>
+    <div class="form-group" id="6">
+      <a id="edit-vocab" class="form-control btn" th:href="@{/update(id=${vocab.id})}">Edit this vocabulary</a>
+      <input onclick='javascript:window.history.back()' value='Cancel' type='button' class="form-control btn" />
     </div>
-  </div>
+</div>
 </div>
 </body>
 </html>

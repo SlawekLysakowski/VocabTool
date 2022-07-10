@@ -3,7 +3,11 @@
 
 INSERT INTO vocabs (id, korean, japanese, english, polish)
 VALUES
-    (1, '미리','あらかじめ', 'in advance', 'wcześniej'),
+    (149,'교통d','交通d','trafficd','ruch drogowdy');
+
+
+
+(1, '미리','あらかじめ', 'in advance', 'wcześniej'),
     (2, '부지런하다','勤勉する', 'Be diligent', 'ciężko pracować'),
     (3, '아끼다','せつやくする', 'economising', 'oszczędzać'),
     (5,'즐기다','楽しむ','enjoy','bawić się, cieszyć się'),

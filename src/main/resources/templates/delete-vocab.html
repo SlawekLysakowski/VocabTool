@@ -1,13 +1,19 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Profile Management</title>
+  <title>delete vocabulary</title>
+  <link  th:href="@{/styles.css}" rel="stylesheet">
 </head>
 <body>
-<div class="container">
-  <h2>Product:</h2>
-  <form th:method="POST" th:action="@{/vocab/delete(id=${vocab.id})}">
+<div id="container">
+  <nav>
+    <a href="/test">home</a>
+    <a href="#">about</a>
+    <a href="/list">vocabulary list</a>
+    <a href="/new">Add vocab</a>
+  </nav>
+  <form th:method="POST" th:action="@{/delete(id=${vocab.id})}">
     <div>
-      Are you sure you want to delete this vocab?
+     <h1 id="delete">Are you sure you want to delete this vocabulary?</h1>
     </div>
     <div class="form-group">
       <input type="submit" class="form-control btn btn-danger" value="Yes">
