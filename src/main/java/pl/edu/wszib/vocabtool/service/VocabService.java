@@ -12,6 +12,7 @@ import java.util.ArrayList;
 public interface VocabService {
 
     Vocab getVocab(Long id) throws ChangeSetPersister.NotFoundException;
+    Vocab selectVocab(Long id) throws ChangeSetPersister.NotFoundException;
     Vocab createVocab (Vocab newVocab);
     ArrayList<Vocab> getAllVocabs();
     Vocab updateVocab (Vocab updateVocab) throws ChangeSetPersister.NotFoundException;

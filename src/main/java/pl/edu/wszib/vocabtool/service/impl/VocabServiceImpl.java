@@ -8,7 +8,7 @@ import pl.edu.wszib.vocabtool.model.Vocab;
 import pl.edu.wszib.vocabtool.service.VocabService;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 @Service
 public class VocabServiceImpl implements VocabService {
@@ -17,6 +17,11 @@ public class VocabServiceImpl implements VocabService {
 
     @Override
     public Vocab getVocab(Long id) throws ChangeSetPersister.NotFoundException {
+        return dao.findById(id).orElseThrow(ChangeSetPersister.NotFoundException::new);
+    }
+
+    @Override
+    public Vocab selectVocab(Long id) throws ChangeSetPersister.NotFoundException {
         return dao.findById(id).orElseThrow(ChangeSetPersister.NotFoundException::new);
     }
 

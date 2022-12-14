@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>test</title>
-<!--  <script type="text/javascript" th:src="@{/index.js}"></script>-->
   <link  th:href="@{/styles.css}" rel="stylesheet">
 </head>
 <body>
@@ -63,6 +62,7 @@
       id="enter-word"
       type="text"
       placeholder="Enter your answer"
+      autocomplete="off"
     >
     <input id='check' type="button" value="Check">
 
@@ -79,7 +79,6 @@
       let koreanWords = [[${koreanWords}]];
       let englishWords = [[${englishWords}]];
       let polishWords = [[${polishWords}]];
-
       let wordsArray = [];
       let highlightedWord;
       let wordIndex;
@@ -92,6 +91,7 @@
       let correctNbr = 0;
       let wrongNbr = 0;
       let japToKor = true;
+      let selected = [];
 
       document.getElementById('correct').textContent = `Correct answers: ${correctNbr}`;
       document.getElementById('wrong').textContent = `Wrong answers:\u00A0 ${wrongNbr}`;
@@ -102,7 +102,7 @@
           .map(() => vocab[Math.round(Math.random() * vocab.length)]);
 
         updateWords();
-        document.getElementById(`word-1`).style.color = '#ff4800';
+        // document.getElementById(`word-1`).style.color = '#ff4800';
         return wordsArray;
       }
 
@@ -111,11 +111,11 @@
         let randomWord = wordsArray[newRandomNumber];
         wordIndex = japToKor ? japaneseWords.indexOf(randomWord) : koreanWords.indexOf(randomWord);
         document.getElementById('current-display-word').textContent = randomWord;
-        console.log(displayedWord.textContent.length)
+        // console.log(displayedWord.textContent.length)
         if (displayedWord.textContent.length > 10) {
           displayedWord.style.fontSize = `30px`;
         } else {
-          displayedWord.style.fontSize = `40px`;
+          displayedWord.style.fontSize = `50px`;
         }
         // console.log(displayedWord.style.fontSize);
         answerKor = koreanWords[wordIndex];
@@ -167,7 +167,6 @@
         })
       }
 
-
       const correctAnswer = function () {
         newWord();
         correctNbr++;
@@ -201,7 +200,7 @@
         let input = document.getElementById("enter-word").value;
         if (japToKor) {
           if (input === answerKor || answerKorArr.includes(input) && input !== "") {
-            wordsArray.splice(index, 1);
+            wordsArray.splice(newRandomNumber, 1);
             updateWords();
             correctAnswer();
           } else {

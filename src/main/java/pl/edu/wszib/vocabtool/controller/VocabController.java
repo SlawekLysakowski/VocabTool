@@ -2,20 +2,16 @@ package pl.edu.wszib.vocabtool.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import pl.edu.wszib.vocabtool.service.DataLoader;
 import pl.edu.wszib.vocabtool.model.Vocab;
 import pl.edu.wszib.vocabtool.service.VocabService;
-
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Random;
+
 
 @Controller
 @RequestMapping("")
@@ -23,13 +19,6 @@ public class VocabController {
 
     @Autowired
     VocabService vocabService;
-
-//    int size = 0;
-//    String[] japaneseWords;
-//    String[] koreanWords;
-//    String[] polishWords;
-//    String[] englishWords;
-
 
     public Vocab findVocab(long id) throws ChangeSetPersister.NotFoundException {
         return vocabService.getVocab(id);
@@ -39,6 +28,12 @@ public class VocabController {
     public String getVocabView(@RequestParam Long id, Model model) throws ChangeSetPersister.NotFoundException {
         model.addAttribute("vocab", vocabService.getVocab(id));
         return "get-vocab";
+    }
+
+    @GetMapping("/select")
+    public String selectVocab(@RequestParam Long id, Model model) throws ChangeSetPersister.NotFoundException {
+        model.addAttribute("select", vocabService.getVocab(id));
+        return "redirect:/vocab/list";
     }
 
 
